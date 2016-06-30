@@ -17,14 +17,10 @@ module.exports = function(grunt) {
         json_checker_gruntplugin: {
             default_options: {
                 options: {
-                    json_files_path: '../json_checker/test/*.json'
+                    json_files_path: '../json_checker/test/*.json',
+                    json_checker_path: './node_modules/json_checker/index.js'
                 }
             }
-        },
-
-        // Unit tests.
-        nodeunit: {
-            tests: ['test/*_test.js']
         }
 
     });
@@ -33,6 +29,6 @@ module.exports = function(grunt) {
     grunt.loadTasks('tasks');
 
     // By default, lint and run all tests.
-    grunt.registerTask('default', ['json_checker_gruntplugin']);
+    grunt.registerTask('default', ['json_checker-gruntplugin']);
 
 };

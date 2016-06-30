@@ -17,20 +17,22 @@ module.exports = function(grunt) {
     grunt.registerMultiTask('json_checker_gruntplugin', 'Checks keys in json files', function() {
         // Merge task-specific and/or target-specific options with these defaults.
         var options = this.options({});
+        grunt.log('options.json_checker_path', options.json_checker_path);
+        grunt.log('options.json_files_path', options.json_files_path);
+        
+        var done = this.async();
+        var child = grunt.util.spawn({
+            cmd: process.execPath,
+            args: [options.json_checker_path, '-j', options.json_files_path],
+        }, function(err, result, code) {
 
-     var done = this.async();
-     var child = grunt.util.spawn({
-         cmd: process.execPath,
-         args: ['../json_checker/index.js', '-j', options.json_files_path],
-     }, function(err, result, code){
-         
-         if(code !== 0){
-          grunt.fail.fatal(err, code);
-         }
-         done(true);
-     });
-     child.stdout.pipe(process.stdout);
-     child.stderr.pipe(process.stderr);
+            if (code !== 0) {
+                grunt.fail.fatal(err, code);
+            }
+            done(true);
+        });
+        child.stdout.pipe(process.stdout);
+        child.stderr.pipe(process.stderr);
     });
 
 };
