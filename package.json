@@ -1,7 +1,7 @@
 {
   "name": "json_checker-gruntplugin",
   "description": "Checks keys in json files",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "homepage": "https://github.com/gitfer/json_checker-gruntplugin",
   "author": {
     "name": "Federico Rota",
@@ -33,6 +33,6 @@
     "gruntplugin"
   ],
   "dependencies": {
-    "json_checker": "git+https://github.com/gitfer/json_checker.git"
+    "json_checker": "git+https://github.com/gitfer/json_checker.git#~1.0.1"
   }
 }
