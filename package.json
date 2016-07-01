@@ -33,6 +33,6 @@
     "gruntplugin"
   ],
   "dependencies": {
-    "json_checker": "git+https://github.com/gitfer/json_checker.git#~1.0.1"
+    "json_checker": "git+https://github.com/gitfer/json_checker.git#*"
   }
 }
